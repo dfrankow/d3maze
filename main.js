@@ -6,9 +6,9 @@ function draw_function() {
     // make nodes (list of pixel changes to display)
     var idx = 0;
     // width in elements.  should be odd.
-    var element_width = 101;
+    var element_width = 301;
     // height in elements.  should be odd.
-    var element_height = 81;
+    var element_height = 251;
     var delta_generator = maze_function(
         element_width,
         // height in elements
@@ -27,7 +27,7 @@ function draw_function() {
     let delta = delta_generator.next();
     var nodes = [];
     // drawing speed.  0 is as fast as possible, higher than 0 is slower.
-    var drawing_speed = 0.1;
+    var drawing_speed = 0.05;
     while (!delta.done) {
         var node = {x: delta.value[1] * (rectwidth+spacer),
                     y: delta.value[0] * (rectwidth+spacer),
@@ -79,7 +79,7 @@ function* maze_function(width, height, complexity, density) {
         the_maze.push(row);
     }
 
-        // Fill borders: top/bottom (columns), then sides (rows)
+    // Fill borders: top/bottom (columns), then sides (rows)
     for (var idx = 0; idx < shape[0]; idx++) {
         yield [idx, 0, 1];
         yield [idx, the_maze[0].length-1, 1];
