@@ -1,4 +1,4 @@
-async function draw_function() {
+function draw_function() {
     var vis = d3.select("#graph")
         .append("svg")
         .attr("width", 500).attr("height", 500);
